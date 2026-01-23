@@ -8,16 +8,14 @@
 
   <body>
     <div class="container-zone">
-      <div class="text-zone">
-        <div class="one-field">
-          <span>Vòng:</span>
-          <select id="round" class="text-window">
-            <option value="1">V1</option>
-            <option value="2">V2</option>
-            <option value="3">V3</option>
-            <option value="4">V4</option>
-          </select>
+      <div class="clock-zone">
+        <div id="clock">
+          <div id="center"></div>
+          <div id="secondHand"></div>
+          <div id="airplan"></div>
         </div>
+      </div>
+      <div class="text-zone">
         <div class="one-field">
           <span>V:</span>
           <input
@@ -48,14 +46,59 @@
           <button id="stopButton">Dừng</button>
         </div>
       </div>
-      <div class="clock-zone">
-        <div id="clock">
-          <div id="center"></div>
-          <div id="secondHand"></div>
-          <div id="airplan"></div>
-        </div>
-      </div>
     </div>
   </body>
-  <script src="./index.js"></script>
+  <!-- <script src="./index.js"></script> -->
 </html>
+<script>
+  const stopButton = document.getElementById("stopButton");
+  const speedInput = document.getElementById("speed");
+  const distanceInput = document.getElementById("distance");
+  const airplan = document.getElementById("airplan");
+
+  let isRotating = true;
+
+  // Stop/Start button functionality
+  stopButton.addEventListener("click", () => {
+    if (isRotating) {
+      secondHand.style.animationPlayState = "paused";
+      airplan.style.animationPlayState = "paused";
+      stopButton.textContent = "Tiếp Tục";
+      stopButton.style.backgroundColor = "darkcyan";
+    } else {
+      secondHand.style.animationPlayState = "running";
+      airplan.style.animationPlayState = "running";
+      stopButton.textContent = "Dừng";
+      stopButton.style.backgroundColor = "#c50000";
+    }
+    isRotating = !isRotating;
+  });
+
+  function calculateSpeed() {
+    const speed = parseFloat(speedInput.value);
+    const distance = parseFloat(distanceInput.value);
+
+    if (speed > 0) {
+      return distance / speed;
+    }
+    return 0;
+  }
+
+  function updateSpeed() {
+    currentSpeed = calculateSpeed();
+
+    if (currentSpeed > 0) {
+      applyAnimations(currentSpeed);
+    }
+  }
+  function applyAnimations(speed) {
+    let currentState = secondHand.style.animationPlayState;
+    let airplanState = airplan.style.animationPlayState;
+    secondHand.style.animation = `rotateSeconds ${speed}s linear infinite`;
+    airplan.style.animation = `moveAround ${speed}s linear infinite`;
+    secondHand.style.animationPlayState = currentState;
+    airplan.style.animationPlayState = airplanState;
+  }
+  speedInput.addEventListener("input", updateSpeed);
+  distanceInput.addEventListener("input", updateSpeed);
+</script>

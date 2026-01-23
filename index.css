@@ -75,24 +75,23 @@
 
         @keyframes moveAround {
             from {
-                transform: rotate(95deg) translate(300px) rotate(-140deg);
+                transform: rotate(95deg) translate(250px) rotate(-140deg);
             }
 
             to {
-                transform: rotate(455deg) translate(300px) rotate(-140deg);
+                transform: rotate(455deg) translate(250px) rotate(-140deg);
             }
         }
 
         #stopButton {
-            margin-top: 20px;
             cursor: pointer;
             background-color: #c50000;
             border-radius: 50%;
-            width: 250px;
-            height: 250px;
+            width: 100px;
+            height: 100px;
             border: none;
             color: white;
-            font-size: 60px;
+            font-size: 32px;
         }
 
         #speed-up {
@@ -125,17 +124,8 @@
             margin-top: 100px;
         }
 
-        .container-zone {
-            display: flex;
-            justify-content: center;
-            margin-top: 80px;
-            margin-left: 30px;
-            /* display: inline-flex; */
-        }
-
         .button-zone {
-            left: 80%;
-            width: 100%;
+            
         }
 
         .clock-zone {
@@ -160,27 +150,27 @@
 
         .text-zone {
             display: flex;
-            flex-direction: column;
-
+            justify-content: center;
+            align-items: center;
+            gap: 20px;
             font-size: 30px;
-            margin-top: 30px;
-            margin-bottom: 20px;
         }
 
         .one-field {
-            width: 50%;
-            font-size: 40px;
-            padding: 10px;
-            margin-left: auto;
-            margin-right: auto;
             display: flex;
             justify-content: center;
+            align-items: center;
             line-height: 2.0;
+            margin-top: 10px;
+        }
+
+        .one-field:nth-child(2){
+            display: none;
         }
 
         .text-window {
             width: 120px;
-            height: 80px;
+            height: 40px;
             margin-left: 10px;
             margin-right: 10px;
             border: solid black 2px;
