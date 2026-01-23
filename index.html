@@ -1,46 +1,61 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
-
-<head>
-    <meta charset="UTF-8">
+  <head>
+    <meta charset="UTF-8" />
     <title>Dia Cu Ly</title>
-    <link rel="stylesheet" href="./index.css">
-</head>
+    <link rel="stylesheet" href="./index.css" />
+  </head>
 
-<body>
+  <body>
     <div class="container-zone">
-        <div class="clock-zone">
-            <div id="clock">
-                <div id="center"></div>
-                <div id="secondHand"></div>
-                <div id="airplan"></div>
-            </div>
+      <div class="text-zone">
+        <div class="one-field">
+          <span>Vòng:</span>
+          <select id="round" class="text-window">
+            <option value="1">V1</option>
+            <option value="2">V2</option>
+            <option value="3">V3</option>
+            <option value="4">V4</option>
+          </select>
         </div>
-        <div class="text-zone">
-            <div class="one-field">
-                <span>Vòng:</span>
-                <select id="round" class="text-window">
-                    <option value="1">V1</option>
-                    <option value="2">V2</option>
-                    <option value="3">V3</option>
-                    <option value="4">V4</option>
-                </select>
-            </div>
-            <div class="one-field">
-                <span>V:</span>
-                <input type="number" id="speed" value="40" class="text-window" min="0" maxlength="4" max="400"> <span>m/s</span>
-            </div>
-            <div class="one-field">
-                <span>D:</span>
-                <input type="number" id="distance" value="2400" class="text-window" min="0" maxlength="4" max="8000"> <span>m</span>
-            </div>
+        <div class="one-field">
+          <span>V:</span>
+          <input
+            type="number"
+            id="speed"
+            value="40"
+            class="text-window"
+            min="0"
+            maxlength="4"
+            max="400"
+          />
+          <span>m/s</span>
         </div>
-
+        <div class="one-field">
+          <span>D:</span>
+          <input
+            type="number"
+            id="distance"
+            value="2400"
+            class="text-window"
+            min="0"
+            maxlength="4"
+            max="8000"
+          />
+          <span>m</span>
+        </div>
         <div class="button-zone">
-            <button id="stopButton">Dừng</button>
+          <button id="stopButton">Dừng</button>
         </div>
+      </div>
+      <div class="clock-zone">
+        <div id="clock">
+          <div id="center"></div>
+          <div id="secondHand"></div>
+          <div id="airplan"></div>
+        </div>
+      </div>
     </div>
-</body>
-<script src="./index.js"></script>
-
+  </body>
+  <script src="./index.js"></script>
 </html>
